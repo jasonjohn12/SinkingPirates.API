@@ -1,0 +1,35 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinkingPirates.API", "SinkingPirates.API\SinkingPirates.API.csproj", "{CAFD637D-D72B-4DD9-B862-063954FFF8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinkingPirates.API.Models", "SinkingPirates.API.Models\SinkingPirates.API.Models.csproj", "{8DF2B538-227C-4278-869E-A4B05EE50C28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinkingPirates.API.Manager", "SinkingPirates.API.Manager\SinkingPirates.API.Manager.csproj", "{800BF48D-739C-4F4F-A9D4-9CF194B8FA70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinkingPirates.API.DataAccess", "SinkingPirates.API.DataAccess\SinkingPirates.API.DataAccess.csproj", "{6F27A958-C8F4-402A-BD10-9B430F4F4F26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAFD637D-D72B-4DD9-B862-063954FFF8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFD637D-D72B-4DD9-B862-063954FFF8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFD637D-D72B-4DD9-B862-063954FFF8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFD637D-D72B-4DD9-B862-063954FFF8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF2B538-227C-4278-869E-A4B05EE50C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF2B538-227C-4278-869E-A4B05EE50C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF2B538-227C-4278-869E-A4B05EE50C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF2B538-227C-4278-869E-A4B05EE50C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{800BF48D-739C-4F4F-A9D4-9CF194B8FA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800BF48D-739C-4F4F-A9D4-9CF194B8FA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800BF48D-739C-4F4F-A9D4-9CF194B8FA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800BF48D-739C-4F4F-A9D4-9CF194B8FA70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F27A958-C8F4-402A-BD10-9B430F4F4F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F27A958-C8F4-402A-BD10-9B430F4F4F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F27A958-C8F4-402A-BD10-9B430F4F4F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F27A958-C8F4-402A-BD10-9B430F4F4F26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

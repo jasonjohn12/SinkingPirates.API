@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
+    <PackageReference Include="Npgsql" Version="5.0.3" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="3.1.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Student\" />
+    <Folder Include="Entry\" />
+    <Folder Include="User\" />
+    <Folder Include="UserRole\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SinkingPirates.API.Models\SinkingPirates.API.Models.csproj" />
+  </ItemGroup>
+</Project>
