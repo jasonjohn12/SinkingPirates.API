@@ -51,6 +51,17 @@ namespace SinkingPirates.API.DataAccess.Student
 
         }
 
+        public async Task<List<StudentEntity>> GetInitialStudents(int userId)
+        {
+            var query = @"SELECT * FROM InitialStudents WHERE UserId = @UserId";
+            DynamicParameters _params = new DynamicParameters(new
+            {
+                UserId = userId
+            });
+            var students = await QueryAsync<StudentEntity>(query, param: _params);
+            return students;
+        }
+
         public async Task<StudentDto> GetStudentById(int studentId)
         {
             var query = @"SELECT * FROM Student WHERE StudentId = @StudentId";

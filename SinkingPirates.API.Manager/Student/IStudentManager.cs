@@ -8,8 +8,8 @@ namespace SinkingPirates.API.Manager.Student
     public interface IStudentManager
     {
         Task<List<StudentEntry>> GetAllStudents();
-        Task<int>CreateNewStudent(StudentDto studentDto);
-         Task<int> DeleteStudent(int studentId);
+        Task<int> CreateNewStudent(StudentDto studentDto);
+        Task<int> DeleteStudent(int studentId);
         Task<StudentDto> GetStudentById(int studentId);
     }
 }

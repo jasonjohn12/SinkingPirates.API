@@ -10,7 +10,7 @@ namespace SinkingPirates.API.DataAccess
 {
     public class UserRoleDataAccess : BaseRepository, IUserRoleDataAccess
     {
-        public UserRoleDataAccess(IConfiguration configuration) : base(configuration, "Data Source=sqlitedemo.db")
+        public UserRoleDataAccess(IConfiguration configuration) : base(configuration, "Data Source=SQLite")
         {
 
         }
