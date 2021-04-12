@@ -28,74 +28,63 @@ namespace SinkingPirates.API.Manager.Student
             _entryDataAccess = entryDataAccess;
             _userDataAccess = userDataAccess;
             _userRoleDataAccess = userRoleDataAccess;
-           
+
         }
         public async Task<List<StudentEntry>> GetAllStudents()
         {
-            string key = "UserRole";
-            int userRole;
-            //if (!_memoryCache.TryGetValue(key, out userRole))
-            //{
-            //    //discuss if we need to pass the userId in queryparam
-            //    // or something we get for jwt token
 
-            //    //security check before getting userId from cache
-            //    // think about how to handle cache
- 
-            //    //userRole = await _userRoleDataAccess.GetUserRoleId(1);
-            //    //_memoryCache.Set(key, userRole);
-            //}
-           // return obj;
+            var students = await _studentDataAccess.GetInitialStudents(1);
 
-
-            var students = await _studentDataAccess.GetAllStudents();
-            List<int> studentIds = students.Select(x => x.StudentId).ToList();
-
-            var entries = await _entryDataAccess.GetAllStudentEntries(studentIds);
-            Console.WriteLine("entries", entries);
-            var studentWithEntries = students.Select(s => new StudentEntry
+            var initialStudents = new List<StudentEntry>();
+            var lastStudentId = -1;
+            foreach (var student in students)
             {
-                StudentId = s.StudentId,
-                FirstName = s.FirstName,
-                LastName = s.LastName,
-                Grade = s.Grade,
-                Entries = entries.Where(e => e.StudentId == s.StudentId).ToList()
-            });
-            return studentWithEntries.ToList();
+                if (student.StudentId != lastStudentId)
+                {
+                    var createdStudent = new StudentEntry()
+                    {
+                        StudentId = student.StudentId,
+                        FirstName = student.FirstName,
+                        LastName = student.LastName,
+                        Grade = student.Grade,
+                        Entries = new List<Entry>()
+
+                    };
+
+                    initialStudents.Add(createdStudent);
+                }
+                if (student.EntryStudentId > 0)
+                {
+                    // gives me the last student that was added
+                    var currentStudent = initialStudents[initialStudents.Count - 1];
+                    var entry = new Entry()
+                    {
+                        Id = student.EntryId,
+                        CreatedByUserId = student.EntryCreatedByUserId,
+                        CreatedAtDateUTC = student.EntryCreatedUTC,
+                        StudentId = student.EntryStudentId,
+                        Note = student.Note
+                    };
+
+                    currentStudent.Entries.Add(entry);
+                }
+
+                lastStudentId = student.StudentId;
+            }
+            return initialStudents;
+
         }
 
         public async Task<int> CreateNewStudent(StudentDto studentDto)
         {
             return await _studentDataAccess.CreateNewStudent(studentDto);
-          
+
         }
 
         public async Task<int> DeleteStudent(int studentId)
         {
-            //string key = "UserData";
-            //UserToRegister user;
-            //if (!_memoryCache.TryGetValue(key, out user))
-            //{
-            //   user = await _userDataAccess.GetUserAccessLevel(1);
-            //    _memoryCache.Set(key, user);
-            //}
-            // if admin delete any student
 
-            string key = "UserRole";
-            int userRole;
-            //if (!_memoryCache.TryGetValue(key, out userRole))
-            //{
-            //    //discuss if we need to pass the userId in queryparam
-            //    // or something we get for jwt token
-            //    userRole = await _userRoleDataAccess.GetUserRoleId(1);
-            //    _memoryCache.Set(key, userRole);
-            //}
-            //if (userRole == 1) return await _studentDataAccess.DeleteStudentById(studentId);
-          // is userId is associated with the userId from student we are safe to delete it
             var student = await _studentDataAccess.GetStudentById(studentId);
-
-            // ask if we should extract this from jwt httpcontext or make api call 
-           // if(student.UserId == user.UserId) return await _studentDataAccess.DeleteStudentById(studentId);
             return 0;
         }
 
